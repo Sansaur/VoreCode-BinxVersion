@@ -11,7 +11,10 @@
 	var/tail_style		// Type of selected tail style
 	var/r_tail = 30		// Tail/Taur color
 	var/g_tail = 30		// Tail/Taur color
-	var/b_tail = 30		// Tail/Taur color
+	var/b_tail = 30		//
+	var/red_ear = 30	// Ear color - Sansaur
+	var/g_ear = 30		// Ear color - Sansaur
+	var/b_ear = 30		// Ear color - Sansaur
 	var/dress_mob = TRUE
 
 // Definition of the stuff for Ears
@@ -26,6 +29,9 @@
 	S["r_tail"]			>> pref.r_tail
 	S["g_tail"]			>> pref.g_tail
 	S["b_tail"]			>> pref.b_tail
+	S["red_ear"]		>> pref.red_ear //Cambiado - Sansaur
+	S["g_ear"]			>> pref.g_ear //Cambiado - Sansaur
+	S["b_ear"]			>> pref.b_ear //Cambiado - Sansaur
 
 /datum/category_item/player_setup_item/vore/ears/save_character(var/savefile/S)
 	S["custom_species"]	<< pref.custom_species
@@ -34,11 +40,18 @@
 	S["r_tail"]			<< pref.r_tail
 	S["g_tail"]			<< pref.g_tail
 	S["b_tail"]			<< pref.b_tail
+	S["red_ear"]		<< pref.red_ear //Cambiado - Sansaur
+	S["g_ear"]			<< pref.g_ear //Cambiado - Sansaur
+	S["b_ear"]			<< pref.b_ear //Cambiado - Sansaur
 
 /datum/category_item/player_setup_item/vore/ears/sanitize_character()
 	pref.r_tail		= sanitize_integer(pref.r_tail, 0, 255, initial(pref.r_tail))
 	pref.g_tail		= sanitize_integer(pref.g_tail, 0, 255, initial(pref.g_tail))
 	pref.b_tail		= sanitize_integer(pref.b_tail, 0, 255, initial(pref.b_tail))
+	pref.red_ear	= sanitize_integer(pref.red_ear, 0, 255, initial(pref.red_ear)) //Cambiado - Sansaur
+	pref.g_ear		= sanitize_integer(pref.g_ear, 0, 255, initial(pref.g_ear)) //Cambiado - Sansaur
+	pref.b_ear		= sanitize_integer(pref.b_ear, 0, 255, initial(pref.b_ear)) //Cambiado - Sansaur
+
 	if(pref.ear_style)
 		pref.ear_style	= sanitize_inlist(pref.ear_style, ear_styles_list, initial(pref.ear_style))
 	if(pref.tail_style)
@@ -51,6 +64,9 @@
 	character.r_tail			= pref.r_tail
 	character.b_tail			= pref.b_tail
 	character.g_tail			= pref.g_tail
+	character.red_ear			= pref.red_ear //Cambiado - Sansaur
+	character.g_ear				= pref.g_ear //Cambiado - Sansaur
+	character.b_ear				= pref.b_ear //Cambiado - Sansaur
 
 /datum/category_item/player_setup_item/vore/ears/content(var/mob/user)
 	. += "<h2>VORE Station Settings</h2>"
@@ -65,6 +81,11 @@
 
 	. += "<b>Ears</b><br>"
 	. += " Style: <a href='?src=\ref[src];ear_style=1'>[pref.ear_style ? "Custom" : "Normal"]</a><br>"
+	if(ear_styles_list[pref.ear_style])
+		var/datum/sprite_accessory/ears/E = ear_styles_list[pref.ear_style] //Sansaur
+		if (E.do_colouration) //Cambiado - Sansaur
+			. += "<a href='?src=\ref[src];ear_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.red_ear, 2)][num2hex(pref.g_ear, 2)][num2hex(pref.b_ear, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.red_ear, 2)][num2hex(pref.g_ear, 2)][num2hex(pref.b_ear)]'><tr><td>__</td></tr></table> </font><br>"
+			//Cambiado - Sansaur
 
 	. += "<b>Tail</b><br>"
 	. += " Style: <a href='?src=\ref[src];tail_style=1'>[pref.tail_style ? "Custom" : "Normal"]</a><br>"
@@ -126,6 +147,15 @@
 			pref.r_tail = hex2num(copytext(new_tailc, 2, 4))
 			pref.g_tail = hex2num(copytext(new_tailc, 4, 6))
 			pref.b_tail = hex2num(copytext(new_tailc, 6, 8))
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["ear_color"]) //Cambiado - Sansaur
+		var/new_earc = input(user, "Choose your character's ear colour:", "Character Preference",
+			rgb(pref.red_ear, pref.g_ear, pref.b_ear)) as color|null
+		if(new_earc)
+			pref.red_ear = hex2num(copytext(new_earc, 2, 4))
+			pref.g_ear = hex2num(copytext(new_earc, 4, 6))
+			pref.b_ear = hex2num(copytext(new_earc, 6, 8))
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["toggle_clothing"])

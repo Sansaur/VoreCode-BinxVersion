@@ -15,6 +15,9 @@
 	var/r_tail = 30
 	var/g_tail = 30
 	var/b_tail = 30
+	var/red_ear = 30 //Sansaur
+	var/g_ear = 30
+	var/b_ear = 30
 
 	// Custom Species Name
 	var/custom_species
