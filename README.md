@@ -1,13 +1,13 @@
 # vorestation
 
-[Forums](http://forum.vore-station.net/) - [Wiki](http://wiki.vore-station.net/)
 
-VOREStation is a fork of the Polaris code branch, itself a fork of the Baystation12 code branch, for the game Spacestation13.
+
+Rapax is a fork of VOREStation, a fork of the Polaris code branch, itself a fork of the Baystation12 code branch, for the game Spacestation13.
 
 ---
 
 ### LICENSE
-VOREStation is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE-AGPL3.txt.
+Rapax is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE-AGPL3.txt.
 
 Commits with a git authorship date prior to `1420675200 +0000` (2015/01/08 00:00) are licensed under the GNU General Public License version 3, which can be found in full in LICENSE-GPL3.txt.
 
@@ -17,14 +17,16 @@ If you wish to develop and host this codebase in a closed source manner you may 
 
 See [here](https://www.gnu.org/licenses/why-affero-gpl.html) for more information.
 
+And this is basically a copy of Vorestation's license
+
 ### GETTING THE CODE
 The simplest way to obtain the code is using the github .zip feature.
 
-Click [here](https://github.com/VOREStation/VOREStation/archive/master.zip) to get the latest code as a .zip file, then unzip it to wherever you want.
+Click [here](https://github.com/Sansaur/VoreCode-BinxVersion/archive/Update-number.zip) to get the latest code as a .zip file, then unzip it to wherever you want.
 
 The more complicated and easier to update method is using git.  You'll need to download git or some client from [here](http://git-scm.com/).  When that's installed, right click in any folder and click on "Git Bash".  When that opens, type in:
 
-    git clone https://github.com/VOREStation/VOREStation.git
+    git clone https://github.com/Sansaur/VoreCode-BinxVersion.git
 
 (hint: hold down ctrl and press insert to paste into git bash)
 
