@@ -205,3 +205,29 @@
 	name = "flip flops"
 	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
 	icon_state = "thongsandal"
+
+//Added by Sansaur 27/09/2016
+/obj/item/clothing/shoes/shoeless
+	name = "going shoeless"
+	desc = "Either you forgot your sandals at home or you just like cold floors, either way, you are weird"
+	icon_state = null
+
+/obj/item/clothing/shoes/shoeless/New()
+	for(var/obj/item/clothing/shoes/shoeless/S in world)
+		qdel(S)
+	qdel(src)
+
+/obj/item/clothing/shoes/shoeless/process()
+	for(var/obj/item/clothing/shoes/shoeless/S in world)
+		qdel(S)
+	qdel(src)
+
+/obj/item/clothing/shoes/shoeless/initialize()
+	for(var/obj/item/clothing/shoes/shoeless/S in world)
+		qdel(S)
+	qdel(src)
+
+/obj/item/clothing/shoes/shoeless/handle_movement(var/turf/walking, var/running)
+	for(var/obj/item/clothing/shoes/shoeless/S in world)
+		qdel(S)
+	qdel(src)

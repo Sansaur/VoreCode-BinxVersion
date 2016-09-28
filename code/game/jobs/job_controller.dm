@@ -368,7 +368,7 @@ var/global/datum/controller/occupations/job_master
 							// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 							// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 							var/metadata = H.client.prefs.gear[G.display_name]
-							if(G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
+							if(G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head) //Trying to make shoeless shoes not spawn -Sansaur
 								custom_equip_leftovers += thing
 							else if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
 								H << "<span class='notice'>Equipping you with \the [thing]!</span>"
@@ -377,6 +377,7 @@ var/global/datum/controller/occupations/job_master
 								custom_equip_leftovers.Add(thing)
 						else
 							spawn_in_storage += thing
+
 			//Equip job items.
 			job.equip(H)
 			job.setup_account(H)
@@ -389,6 +390,7 @@ var/global/datum/controller/occupations/job_master
 				var/datum/gear/G = gear_datums[thing]
 				if(G.slot in custom_equip_slots)
 					spawn_in_storage += thing
+
 				else
 					var/metadata = H.client.prefs.gear[G.display_name]
 					if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
@@ -396,6 +398,7 @@ var/global/datum/controller/occupations/job_master
 						custom_equip_slots.Add(G.slot)
 					else
 						spawn_in_storage += thing
+
 		else
 			H << "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator."
 

@@ -1,4 +1,4 @@
-/datum/job/rd
+/datum/job/rd //Formerly Research Director
 	title = "Research Director"
 	flag = RD
 	head_position = 1

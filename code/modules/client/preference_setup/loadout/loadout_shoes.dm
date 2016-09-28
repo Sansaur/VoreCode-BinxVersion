@@ -104,3 +104,9 @@
 /datum/gear/shoes/flipflops/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+	/*
+/datum/gear/shoes/shoeless
+	display_name = "shoeless"
+	path = /obj/item/clothing/shoes/shoeless
+
+	-Sansaur */

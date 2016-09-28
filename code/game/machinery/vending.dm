@@ -1018,3 +1018,34 @@
 					/obj/item/weapon/scalpel = 2,/obj/item/weapon/circular_saw = 2,/obj/item/weapon/tank/anesthetic = 2,/obj/item/clothing/mask/breath/medical = 5,
 					/obj/item/weapon/screwdriver = 5,/obj/item/weapon/crowbar = 5)
 	//everything after the power cell had no amounts, I improvised.  -Sayu
+
+//Added by Sansaur 27/09/2016
+
+/obj/machinery/vending/clothes_dispenser
+	name = "Fashion wardrobe"
+	desc = "If attention is what you seek, every penny is worth it"
+	product_slogans = "Come on, girl, be the station's princess!;Prima donna!;Mamma mia! Look at the camera flashes! Feel them!;Space is the new Paris!"
+	product_ads = "Hmmmm... You need a change of look!;Who are they to judge!;It's good for you!;Don't quit, buy more!;Fashion!;You'll feel the attention coming back!;Get ready, boys, here I come!.;Now, now! Those shoes don't match, buy one of these!;Oh my! You know better than these peasants and their jumpsuits!;Flashy!;I believe in your choices! Choose me!"
+	vend_delay = 30
+	icon_vend = "fashion-vend"
+	icon_state = "fashion"
+	products = list(/obj/item/clothing/under/pj/red = 1,
+					/obj/item/clothing/under/pj/blue = 1,
+					/obj/item/clothing/under/sl_suit = 1,
+					/obj/item/clothing/under/rank/mailman = 1,
+					/obj/item/clothing/under/color/rainbow = 1,
+					/obj/item/clothing/under/dress/blacktango = 1,
+					/obj/item/clothing/under/dress/blacktango/alt = 1,
+					/obj/item/clothing/under/yogapants = 1)
+	//contraband = list(/obj/item/weapon/flame/lighter/zippo = 4)
+	/*premium = list(/obj/item/weapon/storage/fancy/cigar = 5,
+					/obj/item/weapon/storage/fancy/cigarettes/carcinomas = 5,
+					/obj/item/weapon/storage/fancy/cigarettes/professionals = 5) */
+	prices = list(/obj/item/clothing/under/pj/red = 55,
+					/obj/item/clothing/under/pj/blue = 55,
+					/obj/item/clothing/under/sl_suit = 55,
+					/obj/item/clothing/under/rank/mailman = 145,
+					/obj/item/clothing/under/color/rainbow = 135,
+					/obj/item/clothing/under/dress/blacktango = 100,
+					/obj/item/clothing/under/dress/blacktango/alt = 100,
+					/obj/item/clothing/under/yogapants = 55)

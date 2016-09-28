@@ -34,15 +34,16 @@ var/global/datum/controller/gameticker/ticker
 	var/round_end_announced = 0 // Spam Prevention. Announce round end only once.
 
 /datum/controller/gameticker/proc/pregame()
-	login_music = pick(\
-	/*'sound/music/halloween/skeletons.ogg',\
+	/*login_music = pick('sound/music/main2.ogg'
+	'sound/music/halloween/skeletons.ogg',\
 	'sound/music/halloween/halloween.ogg',\
-	'sound/music/halloween/ghosts.ogg'*/
+	'sound/music/halloween/ghosts.ogg'
 	'sound/music/space.ogg',\
 	'sound/music/traitor.ogg',\
 	'sound/music/title2.ogg',\
 	'sound/music/clouds.s3m',\
-	'sound/music/space_oddity.ogg') //Ground Control to Major Tom, this song is cool, what's going on?
+	'sound/music/space_oddity.ogg')*/ //Ground Control to Major Tom, this song is cool, what's going on?
+	login_music = 'sound/music/main2.ogg' // Till new tracks are added - Sansaur 27/09/2016
 	do
 		pregame_timeleft = 180
 		world << "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>"

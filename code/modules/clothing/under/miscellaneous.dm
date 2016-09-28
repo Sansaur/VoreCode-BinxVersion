@@ -613,3 +613,11 @@
 	desc = "No honest man would wear this abomination"
 	icon_state = "mankini"
 	siemens_coefficient = 1
+
+	//Added by Sansaur on 27/09/2016
+
+/obj/item/clothing/under/yogapants
+	name = "yoga pants"
+	desc = "These are tight... REALLY tight"
+	icon_state = "yogapants"
+
