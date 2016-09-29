@@ -368,7 +368,7 @@ var/global/datum/controller/occupations/job_master
 							// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 							// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 							var/metadata = H.client.prefs.gear[G.display_name]
-							if(G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head) //Trying to make shoeless shoes not spawn -Sansaur
+							if(G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 								custom_equip_leftovers += thing
 							else if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
 								H << "<span class='notice'>Equipping you with \the [thing]!</span>"
