@@ -170,7 +170,7 @@
 	name = "deathclaw ears (Molenar)"
 	desc = ""
 	icon_state = "molenar-deathclaw"
-	ckeys_allowed = list("molenar")
+	ckeys_allowed = list("molenar","kcin2001")
 
 /datum/sprite_accessory/ears/runac
 	name = "fennecsune ears (Runac)"
@@ -407,7 +407,7 @@
 	name = "deathclaw bits (Molenar)"
 	desc = ""
 	icon_state = "molenar-deathclaw"
-	ckeys_allowed = list("molenar","silvertalismen","jertheace")
+	ckeys_allowed = list("molenar","silvertalismen","jertheace","kcin2001")
 
 /datum/sprite_accessory/tail/runac
 	name = "fennecsune tails (Runac)"
