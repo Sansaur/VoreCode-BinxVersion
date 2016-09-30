@@ -106,7 +106,11 @@
 	gear_tweaks = list(gear_tweak_free_color_choice)
 	/*
 /datum/gear/shoes/shoeless
-	display_name = "shoeless"
+	display_name = "No shoes"
 	path = /obj/item/clothing/shoes/shoeless
 
-	-Sansaur */
+/datum/gear/shoes/shoeless/New()
+	..()
+	for(var/obj/item/clothing/shoes/shoeless/S in world)
+		qdel(S)
+	*/

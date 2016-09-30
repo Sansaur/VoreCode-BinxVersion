@@ -1,17 +1,17 @@
 
 var/list/dreams = list(
-	"an ID card","a bottle","a familiar face","a crewmember","a toolbox","a security officer","the Station Administrator",
-	"voices from all around","deep space","a doctor","the engine","a traitor","an ally","darkness",
-	"light","a scientist","a monkey","a catastrophe","a loved one","a gun","warmth","freezing","the sun",
-	"a hat","the Luna","a ruined station","a planet","phoron","air","the medical bay","the bridge","blinking lights",
-	"a blue light","an abandoned laboratory","NanoTrasen","mercenaries","blood","healing","power","respect",
-	"riches","space","a crash","happiness","pride","a fall","water","flames","ice","melons","flying","the eggs","money",
-	"the head of personnel","the head of security","a chief engineer","a research director","a chief medical officer",
-	"the detective","the warden","a member of the internal affairs","a station engineer","the janitor","atmospheric technician",
-	"the quartermaster","a cargo technician","the botanist","a shaft miner","the psychologist","the chemist","the geneticist",
-	"the virologist","the roboticist","the chef","the bartender","the chaplain","the librarian","a mouse","an ert member",
-	"a beach","the holodeck","a smokey room","a voice","the cold","a mouse","an operating table","the bar","the rain","a skrell",
-	"an unathi","a tajaran","the ai core","the mining station","the research station","a beaker of strange liquid",
+	"a sloppy ID card","a bottle","a familiar neko","a micro","getting hit by a toolbox","a security predator","bondage gear",
+	"voices from all around","deep space","a doctor and his open maw","the engine exploding","a traitorous prey","a belly","darkness",
+	"light","a flirty scientist","a monkey with a knife","a catastrophe","a loved one","a gun","warmth","freezing","the sun",
+	"a hat","the... OMG WHAT IS THAT","a ruined station","a planet","a maw closing","cherries","the medical bay","wet sounds","blinking lights",
+	"a blue light","bees","a massive butt","mercenaries","blood","healing","power","magic",
+	"riches","space bellies","a crash","some taurs","pride","FALLING AARGH","water","flames","ice","furred breasts","flying","the eggs","lots of money",
+	"the head of personnel being a cuck","getting fired","a chief engineer","a research director exploding","a violet dragon",
+	"the detective losing at strip poker","the warden looking straight at you","a member of the internal affairs","a station engineer getting spaced","the janitor","atmospheric technician",
+	"the quartermaster getting all flirty","a cargo technician dying against an alien","the botanist","a shaft miner humping the air","the psychologist","the chemist reducing your size","the geneticist",
+	"the virologist making everyone cough","the roboticist building a VOREmech","the chef","the bartender serving drinks naked","a dragoness offering herself as dinner","the librarian","a macro mouse","an ert member",
+	"a beach","the holodeck","a smokey room","a voice","the cold","a mouse","a... a...","the bar","the rain","a skrell",
+	"an unathi's throat","a tajaran's butt","the ai core","the mining station full of deathclaws","the research station","a beaker of strange liquid",
 	)
 
 mob/living/carbon/proc/dream()
