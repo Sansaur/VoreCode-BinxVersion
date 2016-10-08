@@ -7,9 +7,10 @@
 	var/weight = 137					// Weight for mobs for weightgain system
 	var/weight_gain = 1 				// How fast you gain weight
 	var/weight_loss = 0.5 				// How fast you lose weight
-	var/egg_type = "egg" 					// Default egg type.
+	var/egg_type = "egg" 				// Default egg type.
 	var/feral = 0 						// If the mob is feral or not. Does nothing for non xenochimera at the moment.
 	var/metabolism = 0.0015
+	var/predatory_moods = 0				// This is used for those preds who want to go crazy if they don't eat.
 
 //
 // Hook for generic creation of stuff on new creatures
@@ -119,7 +120,10 @@
 
 			if (is_vore_predator(src))
 				for (var/mob/living/M in H.contents)
-					attacker.eat_held_mob(attacker, M, src)
+					if (attacker.eat_held_mob(attacker, M, src)) //Fix micro vore spacing prey
+						H.contents -= M
+						if (H.held_mob == M)
+							H.held_mob = null
 				return 1 //Return 1 to exit upper procs
 			else
 				log_debug("[attacker] attempted to feed [H.contents] to [src] ([src.type]) but it failed.")
@@ -320,6 +324,12 @@
 	var/datum/belly/belly_target = pred.vore_organs[belly]
 	var/attempt_msg = "ERROR: Vore message couldn't be created. Notify a dev. (at)"
 	var/success_msg = "ERROR: Vore message couldn't be created. Notify a dev. (sc)"
+
+	// You cannot devour anyone while you are inside someone -Sansaur
+	// We'll need to upgrade this method to allow you to devour other people in the same belly as you are. -Sansaur
+	if(istype(pred.loc , prey))
+		user << "You cannot devour your predator, you rascal!"
+		return
 
 	// Prepare messages
 	if(user == pred) //Feeding someone to yourself

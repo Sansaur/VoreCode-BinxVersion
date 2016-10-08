@@ -23,7 +23,7 @@
 	var/escapable = 0						// Belly can be resisted out of at any time
 	var/escapetime = 600					// Deciseconds, how long to escape this belly
 
-	var/tmp/digest_mode = DM_HOLD				// Whether or not to digest. Default to not digest.
+	var/tmp/digest_mode = DM_DIGEST				// Whether or not to digest. Default to not digest.
 	var/tmp/list/digest_modes = list(DM_HOLD,DM_DIGEST,DM_HEAL,DM_ABSORB,DM_DRAIN,DM_UNABSORB)	// Possible digest modes
 	var/tmp/list/transform_modes = list(DM_TRANSFORM_MALE,DM_TRANSFORM_FEMALE,DM_TRANSFORM_KEEP_GENDER,DM_TRANSFORM_CHANGE_SPECIES,DM_TRANSFORM_CHANGE_SPECIES_EGG,DM_TRANSFORM_KEEP_GENDER_EGG,DM_TRANSFORM_MALE_EGG,DM_TRANSFORM_FEMALE_EGG, DM_EGG)
 	var/tmp/mob/living/owner					// The mob whose belly this is.
@@ -103,6 +103,9 @@
 // If that location is another mob, contents are transferred into whichever of its bellies the owning mob is in.
 // Returns the number of mobs so released.
 /datum/belly/proc/release_all_contents()
+	if (internal_contents.len == 0) //If there's nothing in the belly, it doesn't work.
+		return 0
+
 	for (var/atom/movable/M in internal_contents)
 		if(istype(M,/mob/living))
 			var/mob/living/ML = M

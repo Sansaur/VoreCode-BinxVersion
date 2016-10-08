@@ -216,7 +216,6 @@
 		"Your overheated skin itches."
 		)
 
-
 /datum/species/vulpkanin
 	name = "Vulpkanin"
 	name_plural = "Vulpkanin"

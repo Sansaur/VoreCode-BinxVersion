@@ -32,6 +32,7 @@
 		B.inside_flavor = "Slick foxguts. Cute on the outside, slimy on the inside!"
 		B.human_prey_swallow_time = swallowTime
 		B.nonhuman_prey_swallow_time = swallowTime
+		B.digest_mode = DM_DIGEST
 		vore_organs[B.name] = B
 		vore_selected = B.name
 
@@ -156,12 +157,6 @@
 	. = ..() //This was at the beggining of this method
 	if(O.force)
 		set_flee_target(user? user : src.loc)
-		/* - Sansaur, lets make this for all animals.
-	if(istype(O, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/USERGRAB
-		if(USERGRAB.state == GRAB_AGGRESSIVE)
-			animal_nom(user)
-			*/
 
 /mob/living/simple_animal/fox/attack_hand(mob/living/carbon/human/M as mob)
 	. = ..()

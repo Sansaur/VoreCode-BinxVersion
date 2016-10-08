@@ -201,6 +201,7 @@
 		if(istype(W, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = W
 			src.MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
+			user.drop_item()
 			return 0
 		if(istype(W,/obj/item/tk_grab))
 			return 0
@@ -264,6 +265,8 @@
 /obj/structure/closet/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
 	if(istype(O, /obj/screen))	//fix for HUD elements making their way into the world	-Pete
 		return
+	/*if(istype(O, /obj/item/weapon/grab))	//fix for HUD elements making their way into the world	-Pete
+		return Let's comment this for now just in case */
 	if(O.loc == user)
 		return
 	if(user.restrained() || user.stat || user.weakened || user.stunned || user.paralysis)

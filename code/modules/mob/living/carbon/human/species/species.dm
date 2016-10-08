@@ -104,6 +104,7 @@
 		"You shiver suddenly.",
 		"Your chilly flesh stands out in goosebumps."
 		)
+	//var/predatory_moods = 0 				Doesn't go here, it's on living_vr.dm
 
 	// HUD data vars.
 	var/datum/hud_data/hud
@@ -300,3 +301,53 @@
 // Called in life() when the mob has no client.
 /datum/species/proc/handle_npc(var/mob/living/carbon/human/H)
 	return
+
+/datum/species/handle_environment_special(var/mob/living/carbon/human/H)
+	if(H.predatory_moods == 1)
+		if(H.stat == 2) // If they're dead they won't think about being all feral and won't need all the code below.
+			return
+		if(H.absorbed == 1) //If they get nomphed and absorbed.
+			return
+
+		if(H.nutrition > 50 && H.feral == 1) //If they went feral then ate something.
+			H.feral = 0
+			H << "<span class='primary'>You feel as if you're no longer feral, the feeling of intense hunger having now passed. You're sated. For the time being, at least.</span>"
+			H.hallucination = 0 //Remove all their hallucinations.
+
+		else if(H.nutrition < 300 && H.nutrition > 200)
+			if(prob(0.5)) //A bit of an issue, not too bad.
+				H << "<span class='info'>You feel extremely hungry. It might be a good idea to find some some food...</span>"
+
+		else if(H.nutrition <= 200 && H.nutrition > 100)
+			if(prob(0.5)) //Getting closer, should probably eat some food about now...
+				H << "<span class='warning'>You feel like you're going to starve and give into your hunger soon... It might would be for the best to find some [pick("food","prey")] to eat...</span>"
+
+		else if(H.nutrition <= 100 && H.nutrition > 50)
+			if(prob(1)) //Getting real close here! Eat something!
+				H << "<span class='danger'> You feel a sharp jabbing pain in your abdomen. You feel as if you're beginning to become feral, with food being the only thing on your mind. </span>"
+
+		else if(H.nutrition <= 50 && H.feral == 0) //Should've eaten sooner!
+			H << "<span class='danger'><big>You suddenly feel a sharp stabbing pain in your stomach. You feel as if you've became completely feral, food the only thing on your mind.</big></span>"
+			if(H.stat == CONSCIOUS)
+				H.emote("twitch")
+			H.feral = 1 //Begin hallucinating
+
+		for(var/mob/living/M in viewers(H))
+			if(M != H && H.nutrition <= 50)
+				if(prob(0.5))//1 in 200 chance to tell them that person looks like food. This is so irregular so it doesn't pop up 24/7 during ERP.
+					H << "<span class='danger'> You feel a stabbing pain in your gut, causing you to twitch in pain.. It would be extremely wise to find some type of food... In fact, [M] looks extremely appetizing...</span>"
+					if(H.stat == CONSCIOUS)
+						H.emote("twitch")
+				if(H.feral == 1) //This should always be the case under 500 nutrition, but just in case.
+					H.hallucination -= 25 //Start to stop hallucinating once you see someone.
+
+			else if(M == H && H.nutrition <= 50) //Hungry and nobody is in view.
+				if(prob(1)) //Constantly nag them to go and find someone or something to eat.
+					H << "<span class='danger'> You feel a sharp jab in your stomach from hunger, causing you to twitch in pain. You need to find something to eat immediately.</span>"
+					if(H.stat == CONSCIOUS)
+						H.emote("twitch")
+				if(H.feral == 1)
+					if(H.hallucination < 200) //200 hallucination cap. Let's not be too evil.
+						H.hallucination += 5 //Start hallucinating while alone and hungry.
+	else
+		return
