@@ -16,8 +16,8 @@
 //This rewrite means we don't have two variables for EVERY item which are used only by a few weapons.
 //It also tidies stuff up elsewhere.
 
-
 /*
+
 
 /*
  * Twohanded
@@ -57,7 +57,7 @@
 /obj/item/weapon/twohanded/proc/wield(mob/living/carbon/user)
 	if(wielded)
 		return
-	if(istype(user,/mob/living/carbon/monkey) )
+	if(istype(user,/mob/living/carbon/human/monkey) )
 		user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
 		return
 	if(user.get_inactive_held_item())

@@ -1,3 +1,98 @@
+/mob/living/simple_animal/corgi/New()
+	if(!vore_organs.len)
+		var/datum/belly/B = new /datum/belly(src)
+		B.immutable = 1
+		B.name = "Stomach"
+		B.inside_flavor = "You got trapped by Ian, you may now have a cute digestion!"
+		B.human_prey_swallow_time = swallowTime
+		B.nonhuman_prey_swallow_time = swallowTime
+		vore_organs[B.name] = B
+		vore_selected = B.name
+
+		B.emote_lists[DM_HOLD] = list(
+			"The foxguts knead and churn around you harmlessly.",
+			"With a loud glorp, some air shifts inside the belly.",
+			"A thick drop of warm bellyslime drips onto you from above.",
+			"The fox turns suddenly, causing you to shift a little.",
+			"During a moment of relative silence, you can hear the fox breathing.",
+			"The slimey stomach walls squeeze you lightly, then relax.")
+
+		B.emote_lists[DM_DIGEST] = list(
+			"The guts knead at you, trying to work you into thick soup.",
+			"You're ground on by the slimey walls, treated like a mouse.",
+			"The acrid air is hard to breathe, and stings at your lungs.",
+			"You can feel the acids coating you, ground in by the slick walls.",
+			"The fox's stomach churns hungrily over your form, trying to take you.",
+			"With a loud glorp, the stomach spills more acids onto you.")
+	..()
+/*
+/mob/living/simple_animal/corgi/Life()
+	//MICE!
+	if((loc) && isturf(loc))
+		if(!stat && !resting && !buckled)
+			for(var/mob/living/simple_animal/mouse/M in loc)
+				if(isPredator) //If the corgi is a predator,
+					movement_target = null
+					custom_emote(1, "greedily stuffs [M] into their gaping maw!")
+					if(M in oview(1, src))
+						animal_nom(M)
+					else
+						M << "You just manage to slip away from [src]'s jaws before you can be sent to a fleshy prison!"
+					break
+				else
+					if(!M.stat)
+						M.splat()
+						visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"))
+						movement_target = null
+						stop_automated_movement = 0
+						break
+	..()
+
+	for(var/mob/living/simple_animal/mouse/snack in oview(src,5))
+		if(snack.stat < DEAD && prob(15))
+			audible_emote(pick("hunkers down!","acts stealthy!","eyes [snack] hungrily."))
+		break
+
+	if(!stat && !resting && !buckled) //SEE A MICRO AND ARE A PREDATOR, EAT IT!
+		for(var/mob/living/carbon/human/food in oview(src, 5))
+
+			if(food.size_multiplier <= RESIZE_A_SMALLTINY)
+				if(prob(10))
+					custom_emote(1, pick("eyes [food] hungrily!","licks their lips and turns towards [food] a little!","pants as they imagine [food] being in their belly."))
+					break
+				else
+					if(prob(5))
+						movement_target = food
+						break
+
+		for(var/mob/living/carbon/human/bellyfiller in oview(1, src))
+			if(bellyfiller in src.prey_excludes)
+				continue
+
+			if(bellyfiller.size_multiplier <= RESIZE_A_SMALLTINY && isPredator)
+				movement_target = null
+				custom_emote(1, pick("slurps [bellyfiller] with their slimey tongue.","looms over [bellyfiller] with their maw agape.","sniffs at [bellyfiller], their belly grumbling hungrily."))
+				sleep(10)
+				custom_emote(1, "starts to scoop [bellyfiller] into their maw!")
+				if(bellyfiller in oview(1, src))
+					animal_nom(bellyfiller)
+				else
+					bellyfiller << "You just manage to slip away from [src]'s jaws before you can be sent to a fleshy prison!"
+				break
+
+	if(!stat && !resting && !buckled)
+		turns_since_scan++
+		if (turns_since_scan > 5)
+			walk_to(src,0)
+			turns_since_scan = 0
+
+			if (flee_target) //fleeing takes precendence
+				handle_flee_target()
+			else
+				handle_movement_target()
+
+*/
+
 /mob/living/simple_animal/corgi/show_inv(mob/user as mob)
 	user.set_machine(src)
 	if(user.stat) return

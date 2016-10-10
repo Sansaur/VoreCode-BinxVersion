@@ -1012,3 +1012,6 @@ mob/proc/yank_out_object()
 /mob/proc/is_muzzled()
 	return 0
 
+	//Added for the defib.dm, investigate later.
+/mob/proc/get_item_by_slot(slot_id)
+	return null

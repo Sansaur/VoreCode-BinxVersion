@@ -57,6 +57,10 @@
 	..()
 	update_icon()
 
+/obj/item/weapon/material/twohanded/proc/unwield()
+	wielded = !wielded
+	update_icon()
+
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
 /obj/item/weapon/material/twohanded/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(15))
@@ -141,3 +145,13 @@
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
 	applies_material_colour = 0
+
+/*
+*
+* THE DEFIBRILATOR, WIP
+* 1) Put the defibrillator on your back first!
+* 2) Steel paddles can be dropped, that shouldnt' happen
+* 3) Paddles don't let you wield them
+* 4) Doesn't let you target patient's chest
+*
+*/

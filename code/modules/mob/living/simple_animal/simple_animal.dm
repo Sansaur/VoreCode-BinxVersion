@@ -317,6 +317,20 @@
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
+	/*
+	* This worked, you can now force other people inside animals, although a better way to do this would be to
+	* create a new method based on the animal_nom() where it reads a different action, also we still need to remove
+	* the "taps him with the grab" we could probably do that with a "return" so the function ends ASAP
+	*/
+	if(istype(O, /obj/item/weapon/grab))
+		var/obj/item/weapon/grab/USERGRAB = O
+		if(USERGRAB.state == GRAB_AGGRESSIVE)
+			var/mob/living/food = USERGRAB.affecting //Whoever is the target of the grab is food
+			if(food == src) //If the target of the grab is the simple_animal targeted, he eats the user.
+				animal_nom(user)
+			else
+				animal_nom(food)
+
 	if(istype(O, /obj/item/stack/medical))
 		if(stat != DEAD)
 			var/obj/item/stack/medical/MED = O
@@ -339,6 +353,8 @@
 			visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
 		else
 			O.attack(src, user, user.zone_sel.selecting)
+
+
 
 /mob/living/simple_animal/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 
