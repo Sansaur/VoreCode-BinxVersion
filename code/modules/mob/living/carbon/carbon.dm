@@ -8,6 +8,7 @@
 
 /mob/living/carbon/Life()
 	..()
+	//We are supposed to make a check here that'll tell us if someone is inside their own belly, and if they are, they'll get gibbed. An attempt to fix this has been done on the teleport_vr.dm file, if it doesn't work, we can try to do this here.
 
 	handle_viruses()
 

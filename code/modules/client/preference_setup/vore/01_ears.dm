@@ -113,6 +113,8 @@
 		var/list/pretty_ear_styles = list("Normal")
 		for(var/path in ear_styles_list)
 			var/datum/sprite_accessory/ears/instance = ear_styles_list[path]
+			if(!(pref.species in instance.species_allowed)) //This adds the "Correct species" check for the Xenohybrid heads -Sansaur
+				continue
 			if((!instance.ckeys_allowed) || (usr.ckey in instance.ckeys_allowed))
 				pretty_ear_styles[instance.name] = path
 

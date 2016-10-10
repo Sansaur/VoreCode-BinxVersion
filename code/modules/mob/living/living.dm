@@ -582,6 +582,8 @@ default behaviour is:
 	set category = "IC"
 
 	if(!incapacitated(INCAPACITATION_KNOCKOUT) && canClick())
+		if(stat != CONSCIOUS) //If you are unconcious you cannot resist -Sansaur
+			return
 		setClickCooldown(20)
 		resist_grab()
 		if(!weakened)

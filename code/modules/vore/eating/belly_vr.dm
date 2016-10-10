@@ -23,7 +23,7 @@
 	var/escapable = 0						// Belly can be resisted out of at any time
 	var/escapetime = 600					// Deciseconds, how long to escape this belly
 
-	var/tmp/digest_mode = DM_DIGEST				// Whether or not to digest. Default to not digest.
+	var/tmp/digest_mode = DM_DIGEST				// Whether or not to digest. Default to digest, if people don't like digesting, they change it to not digestion, not the other way around. -Sansaur
 	var/tmp/list/digest_modes = list(DM_HOLD,DM_DIGEST,DM_HEAL,DM_ABSORB,DM_DRAIN,DM_UNABSORB)	// Possible digest modes
 	var/tmp/list/transform_modes = list(DM_TRANSFORM_MALE,DM_TRANSFORM_FEMALE,DM_TRANSFORM_KEEP_GENDER,DM_TRANSFORM_CHANGE_SPECIES,DM_TRANSFORM_CHANGE_SPECIES_EGG,DM_TRANSFORM_KEEP_GENDER_EGG,DM_TRANSFORM_MALE_EGG,DM_TRANSFORM_FEMALE_EGG, DM_EGG)
 	var/tmp/mob/living/owner					// The mob whose belly this is.

@@ -158,6 +158,36 @@
 	icon_state = "bunny"
 	do_colouration = 1
 
+	//Xenoheads as ears, I don't like it, but... At least they can only be chosen by Xenomorph Hybrids -Sansaur
+	//Also, they need to be colourable, I'm going to test the "do_colouration", but I'm sure it won't work.
+/datum/sprite_accessory/ears/xenodrone
+	name = "xeno, drone"
+	desc = ""
+	icon_state = "xenodrone"
+	species_allowed = list("Xenomorph Hybrid")
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/xenohunter
+	name = "xeno, hunter"
+	desc = ""
+	icon_state = "xenohunter"
+	species_allowed = list("Xenomorph Hybrid")
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/xenoqueen
+	name = "xeno, queen"
+	desc = ""
+	icon_state = "xenoqueen"
+	species_allowed = list("Xenomorph Hybrid")
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/xenosentinel
+	name = "xeno, sentinel"
+	desc = ""
+	icon_state = "xenosentinel"
+	species_allowed = list("Xenomorph Hybrid")
+	do_colouration = 1
+
 // Special snowflake ears go below here.
 
 /datum/sprite_accessory/ears/molenar_kitsune
@@ -397,47 +427,6 @@
 	desc = ""
 	icon_state = "xenotail"
 
-/datum/sprite_accessory/tail/molenar_kitsune
-	name = "quintail kitsune tails (Molenar)"
-	desc = ""
-	icon_state = "molenar-kitsune"
-	ckeys_allowed = list("molenar")
-
-/datum/sprite_accessory/tail/molenar_deathclaw
-	name = "deathclaw bits (Molenar)"
-	desc = ""
-	icon_state = "molenar-deathclaw"
-	ckeys_allowed = list("molenar","silvertalismen","jertheace","kcin2001")
-
-/datum/sprite_accessory/tail/runac
-	name = "fennecsune tails (Runac)"
-	desc = ""
-	icon_state = "runac"
-	ckeys_allowed = list("rebcom1807")
-
-/datum/sprite_accessory/tail/kerena
-	name = "wingwolf tail (+wings) (Kerena)"
-	desc = ""
-	icon_state = "kerena"
-	ckeys_allowed = list("somekindofpony")
-
-/datum/sprite_accessory/tail/rosey
-	name = "tritail kitsune tails (Rosey)"
-	desc = ""
-	icon_state = "rosey"
-	ckeys_allowed = list("joey4298")
-
-/datum/sprite_accessory/tail/scree
-	name = "green taj tail (+wings) (Scree)"
-	desc = ""
-	icon_state = "scree"
-	ckeys_allowed = list("scree")
-
-/datum/sprite_accessory/tail/aronai
-	name = "aronai tail (Aronai)"
-	desc = ""
-	icon_state = "aronai"
-	ckeys_allowed = list("arokha")
 
 /datum/sprite_accessory/tail/feathered
 	name = "feathered wings"
@@ -455,11 +444,6 @@
 	icon_state = "ringtail"
 	do_colouration = 1
 
-/datum/sprite_accessory/tail/holly
-	name = "tigress tail (Holly)"
-	desc = ""
-	icon_state = "tigresstail"
-	ckeys_allowed = list("hoodoo")
 
 //For all species tails. Includes haircolored tails.
 /datum/sprite_accessory/tail/special
@@ -621,6 +605,57 @@
 	icon_state = "seromitail_feathers_hc_s"
 	do_colouration = 1
 
+//Snowflake tails from Vorestation
+
+
+/datum/sprite_accessory/tail/molenar_kitsune
+	name = "quintail kitsune tails (Molenar)"
+	desc = ""
+	icon_state = "molenar-kitsune"
+	ckeys_allowed = list("molenar")
+
+/datum/sprite_accessory/tail/molenar_deathclaw
+	name = "deathclaw bits (Molenar)"
+	desc = ""
+	icon_state = "molenar-deathclaw"
+	ckeys_allowed = list("molenar","silvertalismen","jertheace","kcin2001")
+
+/datum/sprite_accessory/tail/runac
+	name = "fennecsune tails (Runac)"
+	desc = ""
+	icon_state = "runac"
+	ckeys_allowed = list("rebcom1807")
+
+/datum/sprite_accessory/tail/kerena
+	name = "wingwolf tail (+wings) (Kerena)"
+	desc = ""
+	icon_state = "kerena"
+	ckeys_allowed = list("somekindofpony")
+
+/datum/sprite_accessory/tail/rosey
+	name = "tritail kitsune tails (Rosey)"
+	desc = ""
+	icon_state = "rosey"
+	ckeys_allowed = list("joey4298")
+
+/datum/sprite_accessory/tail/scree
+	name = "green taj tail (+wings) (Scree)"
+	desc = ""
+	icon_state = "scree"
+	ckeys_allowed = list("scree")
+
+/datum/sprite_accessory/tail/aronai
+	name = "aronai tail (Aronai)"
+	desc = ""
+	icon_state = "aronai"
+	ckeys_allowed = list("arokha")
+
+
+/datum/sprite_accessory/tail/holly
+	name = "tigress tail (Holly)"
+	desc = ""
+	icon_state = "tigresstail"
+	ckeys_allowed = list("hoodoo")
 /*
 ////////////////////////////
 /  =--------------------=  /
