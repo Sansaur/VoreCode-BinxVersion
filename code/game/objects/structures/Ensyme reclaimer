@@ -49,7 +49,7 @@ else
  
  	victim_name = victim.name 
  	occupied = 1 
- 	meat = 20 
+ 	meat = 10 
  	return 1 
  
  
