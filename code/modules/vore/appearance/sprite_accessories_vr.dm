@@ -157,6 +157,26 @@
 	desc = ""
 	icon_state = "bunny"
 	do_colouration = 1
+datum/sprite_accessory/ears/xenodrone
+	name = "xeno, drone"
+	desc = ""
+	icon_state = "xenodrone"
+
+datum/sprite_accessory/ears/xenohunter
+	name = "xeno, hunter"
+	desc = ""
+	icon_state = "xenohunter"
+
+//need to modify the sprite so it hides the head better
+//datum/sprite_accessory/ears/xenoqueen
+//	name = "xeno, queen"
+//	desc = ""
+//	icon_state = "xenoqueen"
+
+datum/sprite_accessory/ears/xenosentinel
+	name = "xeno, sentinel"
+	desc = ""
+	icon_state = "xenosentinel"
 
 // Special snowflake ears go below here.
 
