@@ -4,7 +4,7 @@
 	name = "a meat spike"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "spike"
-	desc = "A spike for collecting meat from animals."
+	desc = "A spike for collecting meat from animals, or crewmembers, BE CAREFUL, EXTRA LETHAL."
 	density = 1
 	anchored = 1
 	var/meat = 0
@@ -27,16 +27,17 @@
 		else
 			user << "<span class='danger'>They are too big for the spike, try something smaller!</span>"
 
-/obj/structure/kitchenspike/proc/spike(var/mob/living/victim)
+/obj/structure/kitchenspike/proc/spike(var/mob/living/victim, mob/user as mob)
 	if(!istype(victim))
 		return
-
+	//This will be unbalanced as fuck, doe, it'd be better with a "doAfter"
 	if(istype(victim, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = victim
-		if(!issmall(H))
-			return 0
-		meat_type = H.species.meat_type
-		icon_state = "spikebloody"
+		if(H.size_multiplier <= RESIZE_NORMAL) //This still needs new sprites and the such.
+			meat_type = H.species.meat_type
+			icon_state = "spikebloody"
+		else
+			return 0	//Big ass people cannot be spiked.
 	else if(istype(victim, /mob/living/carbon/alien))
 		meat_type = /obj/item/weapon/reagent_containers/food/snacks/xenomeat
 		icon_state = "spikebloodygreen"

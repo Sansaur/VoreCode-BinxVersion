@@ -309,7 +309,9 @@
 			M.visible_message("\red [M] has grabbed [src] passively!")
 			M.do_attack_animation(src)
 
-		if(I_HURT)
+		if(I_HURT) //This can be better fixed with a long check involving mobs and their list of bellies and the list of belly contents
+			if (M.loc == src)
+				return //Prevents attacking mobs while vored, will give problems if trying to attack a mob while on the same tile.
 			adjustBruteLoss(harm_intent_damage)
 			M.visible_message("\red [M] [response_harm] \the [src]")
 			M.do_attack_animation(src)

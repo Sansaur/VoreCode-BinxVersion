@@ -159,6 +159,8 @@
 	desc = "A machine used to turn honeycombs on the frame into honey and wax."
 	icon = 'icons/obj/virology.dmi'
 	icon_state = "centrifuge"
+	density = 1
+	anchored = 1
 
 	var/processing = 0
 	var/honey = 0

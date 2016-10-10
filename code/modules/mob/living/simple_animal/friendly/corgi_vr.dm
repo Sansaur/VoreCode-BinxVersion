@@ -1,20 +1,25 @@
+/*/mob/living/simple_animal/corgi
+	var/turns_since_scan = 0
+	var/mob/living/simple_animal/mouse/movement_target
+*/
 /mob/living/simple_animal/corgi/New()
 	if(!vore_organs.len)
 		var/datum/belly/B = new /datum/belly(src)
 		B.immutable = 1
 		B.name = "Stomach"
-		B.inside_flavor = "You got trapped by Ian, you may now have a cute digestion!"
+		B.inside_flavor = "You got trapped by a corgi, you may now have a cute digestion!"
 		B.human_prey_swallow_time = swallowTime
 		B.nonhuman_prey_swallow_time = swallowTime
+		B.digest_mode = DM_DIGEST
 		vore_organs[B.name] = B
 		vore_selected = B.name
 
 		B.emote_lists[DM_HOLD] = list(
-			"The foxguts knead and churn around you harmlessly.",
-			"With a loud glorp, some air shifts inside the belly.",
+			"The corgi's guts knead and churn around you harmlessly.",
+			"With a loud glorp, some air shifts inside the belly, looks like the corgi is panting.",
 			"A thick drop of warm bellyslime drips onto you from above.",
-			"The fox turns suddenly, causing you to shift a little.",
-			"During a moment of relative silence, you can hear the fox breathing.",
+			"The corgi makes you wiggle around as he dances around!",
+			"During a moment of relative silence, you can hear the corgi panting heavily, probably smiling as ever",
 			"The slimey stomach walls squeeze you lightly, then relax.")
 
 		B.emote_lists[DM_DIGEST] = list(
@@ -22,10 +27,9 @@
 			"You're ground on by the slimey walls, treated like a mouse.",
 			"The acrid air is hard to breathe, and stings at your lungs.",
 			"You can feel the acids coating you, ground in by the slick walls.",
-			"The fox's stomach churns hungrily over your form, trying to take you.",
+			"The corgi's stomach churns hungrily over your form, trying to take you.",
 			"With a loud glorp, the stomach spills more acids onto you.")
 	..()
-/*
 /mob/living/simple_animal/corgi/Life()
 	//MICE!
 	if((loc) && isturf(loc))
@@ -50,7 +54,7 @@
 
 	for(var/mob/living/simple_animal/mouse/snack in oview(src,5))
 		if(snack.stat < DEAD && prob(15))
-			audible_emote(pick("hunkers down!","acts stealthy!","eyes [snack] hungrily."))
+			audible_emote(pick("hunkers down!","stares!","eyes [snack] hungrily.","barks loudly!"))
 		break
 
 	if(!stat && !resting && !buckled) //SEE A MICRO AND ARE A PREDATOR, EAT IT!
@@ -58,7 +62,7 @@
 
 			if(food.size_multiplier <= RESIZE_A_SMALLTINY)
 				if(prob(10))
-					custom_emote(1, pick("eyes [food] hungrily!","licks their lips and turns towards [food] a little!","pants as they imagine [food] being in their belly."))
+					custom_emote(1, pick("eyes [food] hungrily!","licks their lips happily and turns towards [food] a little!","pants as they imagine [food] being in their belly."))
 					break
 				else
 					if(prob(5))
@@ -85,13 +89,25 @@
 		if (turns_since_scan > 5)
 			walk_to(src,0)
 			turns_since_scan = 0
+			handle_movement_target()
 
-			if (flee_target) //fleeing takes precendence
-				handle_flee_target()
-			else
-				handle_movement_target()
+/mob/living/simple_animal/corgi/proc/handle_movement_target()
+	//if our target is neither inside a turf or inside a human(???), stop
+	if((movement_target) && !(isturf(movement_target.loc) || ishuman(movement_target.loc) ))
+		movement_target = null
+		stop_automated_movement = 0
+	//if we have no target or our current one is out of sight/too far away
+	if( !movement_target || !(movement_target.loc in oview(src, 4)) )
+		movement_target = null
+		stop_automated_movement = 0
+		for(var/mob/living/simple_animal/mouse/snack in oview(src)) //search for a new target
+			if(isturf(snack.loc) && !snack.stat)
+				movement_target = snack
+				break
 
-*/
+	if(movement_target)
+		stop_automated_movement = 1
+		walk_to(src,movement_target,0,10)
 
 /mob/living/simple_animal/corgi/show_inv(mob/user as mob)
 	user.set_machine(src)

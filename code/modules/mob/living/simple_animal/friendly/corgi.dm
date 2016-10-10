@@ -19,6 +19,9 @@
 	response_harm   = "kicks"
 	see_in_dark = 5
 	mob_size = 8
+	var/turns_since_scan = 0
+	var/obj/movement_target_object
+	var/mob/living/simple_animal/mouse/movement_target
 
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
@@ -29,8 +32,6 @@
 	real_name = "Ian"	//Intended to hold the name without altering it.
 	gender = MALE
 	desc = "It's a corgi."
-	var/turns_since_scan = 0
-	var/obj/movement_target
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
@@ -43,40 +44,40 @@
 		turns_since_scan++
 		if(turns_since_scan > 5)
 			turns_since_scan = 0
-			if((movement_target) && !(isturf(movement_target.loc) || ishuman(movement_target.loc) ))
-				movement_target = null
+			if((movement_target_object) && !(isturf(movement_target_object.loc) || ishuman(movement_target_object.loc) ))
+				movement_target_object = null
 				stop_automated_movement = 0
-			if( !movement_target || !(movement_target.loc in oview(src, 3)) )
-				movement_target = null
+			if( !movement_target_object || !(movement_target_object.loc in oview(src, 3)) )
+				movement_target_object = null
 				stop_automated_movement = 0
 				for(var/obj/item/weapon/reagent_containers/food/snacks/S in oview(src,3))
 					if(isturf(S.loc) || ishuman(S.loc))
-						movement_target = S
+						movement_target_object = S
 						break
-			if(movement_target)
+			if(movement_target_object)
 				stop_automated_movement = 1
-				step_to(src,movement_target,1)
+				step_to(src,movement_target_object,1)
 				sleep(3)
-				step_to(src,movement_target,1)
+				step_to(src,movement_target_object,1)
 				sleep(3)
-				step_to(src,movement_target,1)
+				step_to(src,movement_target_object,1)
 
-				if(movement_target)		//Not redundant due to sleeps, Item can be gone in 6 decisecomds
-					if (movement_target.loc.x < src.x)
+				if(movement_target_object)		//Not redundant due to sleeps, Item can be gone in 6 decisecomds
+					if (movement_target_object.loc.x < src.x)
 						set_dir(WEST)
-					else if (movement_target.loc.x > src.x)
+					else if (movement_target_object.loc.x > src.x)
 						set_dir(EAST)
-					else if (movement_target.loc.y < src.y)
+					else if (movement_target_object.loc.y < src.y)
 						set_dir(SOUTH)
-					else if (movement_target.loc.y > src.y)
+					else if (movement_target_object.loc.y > src.y)
 						set_dir(NORTH)
 					else
 						set_dir(SOUTH)
 
-					if(isturf(movement_target.loc) )
-						UnarmedAttack(movement_target)
-					else if(ishuman(movement_target.loc) && prob(20))
-						visible_emote("stares at the [movement_target] that [movement_target.loc] has with sad puppy eyes.")
+					if(isturf(movement_target_object.loc) )
+						UnarmedAttack(movement_target_object)
+					else if(ishuman(movement_target_object.loc) && prob(20))
+						visible_emote("stares at the [movement_target_object] that [movement_target_object.loc] has with sad puppy eyes.")
 
 		if(prob(1))
 			visible_emote(pick("dances around","chases their tail"))
@@ -154,7 +155,6 @@
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
-	var/turns_since_scan = 0
 	var/puppies = 0
 
 //Lisa already has a cute bow!
@@ -210,8 +210,6 @@
 	real_name = "Spice"	//Intended to hold the name without altering it.
 	gender = FEMALE
 	desc = "It's a tamaskan, the name Spice can be found on its collar."
-	var/turns_since_scan = 0
-	var/obj/movement_target
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"

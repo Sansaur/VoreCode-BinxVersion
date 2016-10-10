@@ -1,6 +1,6 @@
 ///////////////////// Simple Animal /////////////////////
 /mob/living/simple_animal
-	var/isPredator = 0 					//Are they capable of performing and pre-defined vore actions for their species?
+	var/isPredator = 1 					//Are they capable of performing and pre-defined vore actions for their species? Changed so by default all animals are predators - Sansaur
 	var/swallowTime = 30 				//How long it takes to eat its prey in 1/10 of a second. The default is 3 seconds.
 	var/list/prey_excludes = list()		//For excluding people from being eaten.
 
@@ -12,8 +12,17 @@
 	set category = "Vore"
 	set desc = "Since you can't grab, you get a verb!"
 
+	//This method is too simple, needs checks to see if the T mob wants to be eaten or not, or if whoever is going to eat is inside others.
+	if (stat != CONSCIOUS) //If the animal is unconcious, it doesn't eat anyone
+		return
+		/*
+ 	//If the animal is in the T's loc it won't work
+ 	if(istype(src.loc,/mob/living))
+ 		checker = 0
+		return
+	if(checker == 1)*/
 	feed_grabbed_to_self(src,T)
-
+	return
 //
 // Simple proc for animals to have their digestion toggled on/off externally
 //

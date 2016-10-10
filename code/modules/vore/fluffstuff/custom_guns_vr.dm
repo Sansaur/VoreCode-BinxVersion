@@ -306,6 +306,18 @@
 	name = "\improper MEUSOC .45"
 	desc = "Some serious drywall work, coming up!"
 
+/obj/item/weapon/gun/projectile/colt/fluff/mercleader
+	name = "Discipline"
+	desc = "A custom .45 pistol modeled after an M1911. Its chrome plated. For when someone needs to be convinced to lay down. Permanently."
+	icon_state = "mercolt"
+	icon = 'icons/vore/custom_guns_vr.dmi'
+	icon_override = 'icons/vore/custom_guns_vr.dmi'
+	magazine_type = /obj/item/ammo_magazine/c45m
+	caliber = ".45"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/semiauto.ogg'
+	load_method = MAGAZINE
+
 //////////////////// Energy Weapons ////////////////////
 //arokha:Aronai Kadigan
 /obj/item/weapon/gun/energy/gun/fluff/aro
