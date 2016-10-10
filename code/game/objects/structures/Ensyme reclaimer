@@ -1,0 +1,21 @@
+name = "Ensyme reclaimer"
+icon = 'icons/obj/Ensyme_Reclaimer.dmi'        
+desc = "In goes dead bodies, out comes meat for the cloner. Simple as that. Try not to think about it too much."       
+density = 1      
+anchored = 1        
+var/meat = 0
+else                    
+user << "<span class='danger'>They are too big for the grinder, try something smaller!</span>"
+/obj/structure/Ensyme_Reclaimer(var/mob/living/victim, mob/user as mob)            
+if(!istype(victim))                
+return           
+if(istype(victim, /mob/living/carbon/human))               
+var/mob/living/carbon/human/H = victim
+if(H.size_multiplier <= RESIZE_NORMAL)        
+meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh    
+else     
+return 0    //Big ass people cannot be spiked.       
+else if(istype(victim, /mob/living/carbon/alien))           
+meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh
+
+//this should work .(sorry if it dont Sansaur)
