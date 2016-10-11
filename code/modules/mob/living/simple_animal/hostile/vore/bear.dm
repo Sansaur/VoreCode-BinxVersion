@@ -37,6 +37,82 @@
 
 	faction = "russian"
 
+/mob/living/simple_animal/hostile/vore/icewolf
+	name = "ice wolf"
+	desc = "It's an ice wolf. Known for their voracity, and lethality in packs."
+	icon_state = "icewolf"
+	icon_living = "icewolf"
+	icon_dead = "icewolf-dead"
+	icon_gib = "bear-gib"
+	speak_emote = list("howls", "yaps")
+	emote_hear = list("barks","yips")
+	emote_see = list("perks its ears alertly", "gnashes its teeth")
+	speak_chance = 1
+	turns_per_move = 5
+	see_in_dark = 6
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "pokes"
+	stop_automated_movement_when_pulled = 0
+	maxHealth = 100
+	health = 100
+	melee_damage_lower = 10
+	melee_damage_upper = 15
+	luminosity = 5
+	speed = 2
+	move_to_delay = 10
+
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = -99999990
+	var/stance_step = 0
+
+	faction = "ice"
+
+/mob/living/simple_animal/hostile/vore/icefox
+	name = "cryo fox"
+	desc = "It's a cryo fox. Known for their voracity, and lethality in packs."
+	icon_state = "cryofox"
+	icon_living = "cryofox"
+	icon_dead = "cryofox-dead"
+	icon_gib = "bear-gib"
+	speak_emote = list("growls", "rhhhs")
+	emote_hear = list("barks","yips","geckers")
+	emote_see = list("sniffs the air", "gnashes its teeth")
+	speak_chance = 1
+	turns_per_move = 5
+	see_in_dark = 6
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "pokes"
+	stop_automated_movement_when_pulled = 0
+	maxHealth = 40
+	health = 40
+	melee_damage_lower = 10
+	melee_damage_upper = 15
+	luminosity = 5
+	speed = 1
+	move_to_delay = 10
+
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = -99999990
+	var/stance_step = 0
+
+	faction = "ice"
+
 /mob/living/simple_animal/hostile/vore/bear/brown
 	name = "brown bear"
 	desc = "RawrRawr!!"

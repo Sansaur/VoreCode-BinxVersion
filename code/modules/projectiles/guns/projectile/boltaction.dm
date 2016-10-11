@@ -13,6 +13,28 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	action_sound = 'sound/weapons/riflebolt.ogg'
 
+/obj/item/weapon/gun/projectile/shotgun/pump/rifle/smosin
+	name = "scoped mosin nagant"
+	desc = "An 'antique' M1891/30 mosin nagant. Refitted with a skeleton stock for better stability, and a scope for long range shooting. A picture of a particularly colorful bird is rubberbanded to the stock."
+	item_state = "ebr"
+	icon_state = "ebr"
+	fire_sound = 'sound/weapons/rifleshot.ogg'
+	max_shells = 5
+	accuracy = -1
+	scoped_accuracy = 3
+	recoil = 1
+	caliber = "a762"
+	origin_tech = list(TECH_COMBAT = 3)// You're pretty good!
+	ammo_type = /obj/item/ammo_casing/a762
+	load_method = SINGLE_CASING|SPEEDLOADER
+	action_sound = 'sound/weapons/riflebolt.ogg'
+	verb/scope()
+		set category = "Object"
+		set name = "Use Scope"
+		set popup_menu = 1
+
+		toggle_scope(2.0)
+
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/practice // For target practice
 	desc = "A bolt-action rifle with a lightweight synthetic wood stock, designed for competitive shooting. Comes shipped with practice rounds pre-loaded into the gun. Popular among professional marksmen. Uses 7.62mm rounds."
 	ammo_type = /obj/item/ammo_casing/a762p

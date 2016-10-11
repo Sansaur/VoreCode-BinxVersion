@@ -86,6 +86,15 @@
 	caliber = "10mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 
+/obj/item/ammo_casing/a10mmr
+	desc = "A 10x24mm bullet casing."
+	caliber = "10x24mm"
+	projectile_type = /obj/item/projectile/bullet/pistol/medium
+
+/obj/item/ammo_casing/a10mmrub
+	desc = "A 10x24mm bullet casing."
+	caliber = "10x24mm"
+	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
