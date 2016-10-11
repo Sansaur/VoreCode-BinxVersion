@@ -20,3 +20,7 @@
 			very bad idea. only pissed them off. giant white carp appeared. killed ivan. then giant carp cracked yuri pod like \
 			eggshell and swallowed yuri.<br><br>no food. can't call help. carp chewed comms relay. 2 weeks since then. \
 			can't eat carp. is poison.<br><br>avenge comrades. avenge me. i die in glory.<br><br>-markov"
+
+/obj/item/weapon/paper/permit/mining/rifle
+	name = "mining rifles permit"
+	info = "The rifles are to be used for self defense while mining ONLY.<br><br>Security will confiscate them if they are used improperly.<br><br>-Stahl"

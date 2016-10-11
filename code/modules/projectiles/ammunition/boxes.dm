@@ -247,6 +247,28 @@
 	max_ammo = 20
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/a10mmp
+	name = "M41A3 magazine (10x24mm)"
+	icon_state = "battlerifle"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	caliber = "10x24mm"
+	matter = list(DEFAULT_WALL_MATERIAL = 3500)
+	ammo_type = /obj/item/ammo_casing/a10mmr
+	max_ammo = 40
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a10mmpr
+	name = "M41A3 magazine (10x24mm rubber)"
+	icon_state = "battlerifle"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	caliber = "10x24mm"
+	matter = list(DEFAULT_WALL_MATERIAL = 3500)
+	ammo_type = /obj/item/ammo_casing/a10mmrub
+	max_ammo = 40
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/a10mm/empty
 	initial_ammo = 0
 
@@ -293,6 +315,17 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 3600)
 	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 20
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a556b
+	name = "50rnd beta mag (5.56mm)"
+	icon_state = "5.56beta"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	caliber = "a556"
+	matter = list(DEFAULT_WALL_MATERIAL = 7600)
+	ammo_type = /obj/item/ammo_casing/a556
+	max_ammo = 50
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a556m/empty

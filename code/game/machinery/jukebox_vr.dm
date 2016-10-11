@@ -12,8 +12,8 @@
 	// Only visible if hacked
 	var/list/datum/track/secret_tracks = list(
 		new/datum/track("Bandit Radio", 'sound/music/jukebox/bandit_radio.ogg'),
-		new/datum/track("Ghost Fight (Toby Fox)", 'sound/music/jukebox/TobyFoxGhostFight.mid'),
 		new/datum/track("Space Asshole", 'sound/music/space_asshole.ogg'),
+		new/datum/track("MGR - Red Alert", 'sound/music/jukebox/MGR - Red Alert.ogg'),
 		new/datum/track("THUNDERDOME", 'sound/music/THUNDERDOME.ogg'),
 	)
 
@@ -39,6 +39,11 @@
 		new/datum/track("Space Oddity", 'sound/music/space_oddity.ogg'),
 		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
 		new/datum/track("Trai`Tor", 'sound/music/traitor.ogg'),
+		new/datum/track("The Five Stars - Atom Bomb Baby", 'sound/music/jukebox/The Five Stars - Atom Bomb Baby.ogg'),
+		new/datum/track("The Ink Spots - Its all over", 'sound/music/jukebox/The Ink Spots - Its all over.ogg'),
+		new/datum/track("L.A. Noire - Guilty", 'sound/music/jukebox/L.A. Noire - Guilty.ogg'),
+		new/datum/track("Moses Sumney - Dwell In The Dark", 'sound/music/jukebox/Moses Sumney - Dwell In The Dark.ogg'),
+		new/datum/track("Cowboy Bebop - Too Good Too Bad", 'sound/music/jukebox/Cowboy Bebop - Too Good Too Bad.ogg'),
 		new/datum/track("Welcome To Jurassic Park", 'sound/music/jukebox/WelcomeToJurassicPark.mid')
 	)
 
