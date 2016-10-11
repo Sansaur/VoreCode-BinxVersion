@@ -87,8 +87,36 @@
 	edge = 1
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
+/obj/item/weapon/remains/human
+	desc = "They look like.. partially digested remains. They have a strange aura about them."
+	name = "remains"
+	icon_state = "dremains"
+	icon_override = 'icons/vore/custom_items_vr.dmi'
 
 /obj/item/weapon/sword/fluff/joanaria/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+
+	if(default_parry_check(user, attacker, damage_source) && prob(75))
+		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
+		return 1
+	return 0
+
+//for general use
+/obj/item/weapon/sword/fluff/esabre
+	name = "energy sabre"
+	desc = "A beautifully crafted energy sabre. It has a thin blade and is used for quick attacks."
+	icon = 'icons/vore/custom_items_vr.dmi'
+	icon_state = "esabre"
+	icon_override = 'icons/vore/custom_items_vr.dmi'
+	item_state = "esabremob"
+	origin_tech = "materials=8"
+	force = 25
+	sharp = 0
+	edge = 0
+	hitsound = 'sound/weapons/rapidslice.ogg'
+
+
+/obj/item/weapon/sword/fluff/esabre/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 
 	if(default_parry_check(user, attacker, damage_source) && prob(75))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
