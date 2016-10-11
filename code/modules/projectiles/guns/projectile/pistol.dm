@@ -73,7 +73,6 @@
 	icon_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m) //Projectile fix -Sansaur
-	allowed_magazines = list(/obj/item/ammo_magazine/c45m) //Projectile fix -Sansaur
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/semiauto.ogg'
