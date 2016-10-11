@@ -7,7 +7,7 @@ var/list/mining_overlay_cache = list()
 	icon_state = "rock-dark"
 
 /turf/simulated/mineral //wall piece
-	name = "icy rock"
+	name = "rock"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock"
 	oxygen = 0
@@ -53,7 +53,7 @@ var/list/mining_overlay_cache = list()
 	ignore_mapgen = 1
 
 /turf/simulated/mineral/floor
-	name = "icy sand"
+	name = "sand"
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	icon_state = "asteroid"
 	density = 0
@@ -62,29 +62,6 @@ var/list/mining_overlay_cache = list()
 
 /turf/simulated/mineral/floor/ignore_mapgen
 	ignore_mapgen = 1
-
-/turf/simulated/snow/floor
-	name = "snow"
-	icon = 'icons/turf/snow1.dmi'
-	icon_state = "snow2_4"
-	density = 0
-	opacity = 0
-	blocks_air = 0
-	temperature = -1500
-
-/turf/simulated/snow/floor/ignore_mapgen
-	var/ignore_mapgen = 1
-
-/turf/simulated/ice/floor
-	name = "ice"
-	icon = 'icons/turf/snow1.dmi'
-	icon_state = "ice_floor"
-	density = 0
-	opacity = 0
-	blocks_air = 0
-	temperature = -1500
-/turf/simulated/ice/floor/ignore_mapgen
-	var/ignore_mapgen = 1
 
 /turf/simulated/mineral/proc/make_floor()
 	if(!density && !opacity)

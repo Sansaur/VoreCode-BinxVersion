@@ -154,7 +154,7 @@
 /obj/item/weapon/melee/energy/sword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-
+		
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, user.loc)
 		spark_system.start()
@@ -227,17 +227,3 @@
 			host.embedded -= src
 			host.drop_from_inventory(src)
 		spawn(1) if(src) qdel(src)
-
-/obj/item/weapon/melee/energy/sword/sabre
-	name = "energy sabre"
-	desc = "A beautifully crafted energy sabre. It has a thin blade and is used for quick attacks."
-	icon_state = "esabre0"
-	hitsound = 'sound/weapons/rapidslice.ogg'
-
-/obj/item/weapon/melee/energy/sword/sabre/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-
-	if(default_parry_check(user, attacker, damage_source) && prob(75))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
-		return 1
-	return 0

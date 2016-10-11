@@ -264,6 +264,27 @@
 	icon_override = 'icons/vore/custom_clothes_vr.dmi'
 	overlay_state = "" //They don't have one
 
+/obj/item/clothing/under/rank/fluff/grunt
+	name = "Merc uniform"
+	desc = "A simple t-shirt and dark colored pants worn by mercs."
+
+	icon = 'icons/vore/custom_clothes_vr.dmi'
+	icon_state = "rogrunt"
+
+	icon_override = 'icons/vore/custom_clothes_vr.dmi'
+	item_state = "rogrunt"
+
+/obj/item/clothing/under/rank/fluff/leader
+	name = "Merc leader uniform"
+	desc = "A BDU with a kevlar plate carrier attatched to it. This one belongs to the leader of the Rapax Org."
+
+	icon = 'icons/vore/custom_clothes_vr.dmi'
+	icon_state = "roleader"
+
+	icon_override = 'icons/vore/custom_clothes_vr.dmi'
+	item_state = "roleader"
+	armor = list(melee = 5, bullet = 15, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)
+
 //john.wayne9392:Harmony Prechtl
 /obj/item/clothing/suit/armor/captain/fluff/harmsuit
 	name = "Harmony's Captain Armor"
@@ -300,27 +321,6 @@
 	centcom
 		name = "\improper CentCom administrator's uniform"
 		desc = "It's a green jumpsuit with some gold markings denoting the rank of \"Administrator\"."
-
-/obj/item/clothing/under/rank/fluff/grunt
-	name = "Merc uniform"
-	desc = "A simple t-shirt and dark colored pants worn by mercs."
-
-	icon = 'icons/vore/custom_clothes_vr.dmi'
-	icon_state = "rogrunt"
-
-	icon_override = 'icons/vore/custom_clothes_vr.dmi'
-	item_state = "rogrunt"
-
-/obj/item/clothing/under/rank/fluff/leader
-	name = "Merc leader uniform"
-	desc = "A BDU with a kevlar plate carrier attatched to it. This one belongs to the leader of the Rapax Org."
-
-	icon = 'icons/vore/custom_clothes_vr.dmi'
-	icon_state = "roleader"
-
-	icon_override = 'icons/vore/custom_clothes_vr.dmi'
-	item_state = "roleader"
-	armor = list(melee = 5, bullet = 15, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)
 
 //john.wayne9392:Harmony Prechtl
 /obj/item/clothing/head/centhat/fluff/harmhat

@@ -104,23 +104,6 @@
 
 	return 1
 
-/obj/effect/spawner/snowfield
-    icon = 'icons/obj/flora/snowflora.dmi'
-    icon_state = "snowbush1"
-
-    New()
-        var/clutter_chance = rand(1,100)
-        if(clutter_chance >= 1 && clutter_chance <= 10)
-            new /obj/structure/flora/tree/pine(get_turf(src))
-        if(clutter_chance >= 11 && clutter_chance <= 20)
-            new /obj/structure/flora/bush(get_turf(src))
-        if(clutter_chance >= 21 && clutter_chance <= 30)
-            new /obj/structure/flora/bush(get_turf(src))
-        if(clutter_chance == 100)
-            var/junk = pick(/mob/living/simple_animal/hostile/vore/icewolf, /mob/living/simple_animal/hostile/vore/icefox, /obj/effect/landmark)
-            new junk(get_turf(src))
-        qdel(src)
-
 //Costume spawner landmarks
 /obj/effect/landmark/costume/New() //costume spawner, selects a random subclass and disappears
 
