@@ -37,27 +37,3 @@
 	heat_damage_per_tick = 15	//amount of damage applied if animal's body temperature is higher than maxbodytemp
 	cold_damage_per_tick = 10	//same as heat_damage_per_tick, only if the bodytemperature it's lower than minbodytemp
 	unsuitable_atoms_damage = 10
-
-/mob/living/simple_animal/hostile/retaliate/broken
-	name = "#@%*@$^)"
-	desc = "What the fuck..."
-	icon_state = "broken"
-	icon_living = "broken"
-	icon_dead = "broken_dead"
-	speak_chance = 0
-	turns_per_move = 5
-	response_help = "pokes"
-	response_disarm = "gently pushes aside"
-	response_harm = "punches"
-	emote_see = list("honks")
-	speak_chance =0
-	a_intent = I_HURT
-	stop_automated_movement_when_pulled = 0
-	maxHealth = 100
-	health = 100
-	speed = -5
-	harm_intent_damage = 8
-	melee_damage_lower = 15
-	melee_damage_upper = 15
-	attacktext = "attacked"
-	attack_sound = 'sound/hallucinations/wail.ogg'

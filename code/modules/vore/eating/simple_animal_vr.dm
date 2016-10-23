@@ -46,3 +46,32 @@
 		var/confirm = alert(usr, "This mob is currently set to digest all stomach contents. Do you want to disable this?", "Disabling [name]'s Digestion", "Disable", "Cancel")
 		if(confirm == "Disable")
 			B.digest_mode = "Hold"
+
+//Why is this on simple_animal_vr.dm if it's a carbon/human thing? -Sansaur
+/mob/living/carbon/human/verb/micro_crush(var/mob/living/target in view(1)-usr)
+	set name = "Crush Micro"
+	set desc = "Attempt to crush a micro."
+	set category = "Vore"
+	set src in oview(1)
+	var/mob/living/carbon/human/user = usr
+
+	if(user.size_multiplier - target.size_multiplier >= 0.75)
+		var/confirm = alert(usr, "Are you sure you want to crush [name]? This WILL kill them.", "Crushing [name]", "Crush", "Don't Crush")
+		if(confirm == "Crush")
+			var/T = get_turf(target)
+			if(istype(user) && istype(user.tail_style, /datum/sprite_accessory/tail/taur/naga))
+				user.visible_message("[user] positions their tail above [target], preparing to crush them!")
+				if (do_after(usr,40))
+					user.visible_message("[user] slams their tail down ontop of [target], crushing them out completely!")
+					new /obj/effect/decal/cleanable/blood/gibs/core(T)
+					target.apply_damage(400, BRUTE) //Yikes!
+					qdel(target)
+			else
+				user.visible_message("[user] positions their foot above [target], preparing to crush them!")
+				if (do_after(usr,40))
+					user.visible_message("[user] slams their foot down ontop of [target], twisting and grinding them out like a cigarette!")
+					new /obj/effect/decal/cleanable/blood/gibs/core(T)
+					target.apply_damage(400, BRUTE)
+					qdel(target)
+		else
+			return

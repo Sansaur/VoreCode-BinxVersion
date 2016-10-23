@@ -82,6 +82,7 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 /** Add the set_size() proc to usable verbs. */
 /hook/living_new/proc/resize_setup(mob/living/H)
 	H.verbs += /mob/living/proc/set_size
+	H.verbs += /mob/living/proc/leave_remains_toggle
 	return 1
 
 /**
@@ -195,3 +196,17 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 				src << "You pin [tmob] beneath your foot!"
 				tmob << "[src] pins you beneath their foot!"
 			return 1
+
+/**
+* Here you can change wether you are leaving remains or not
+**/
+
+/mob/living/proc/leave_remains_toggle()
+    set name = "Toggle leaving remains"
+    set category = "Vore"
+    if(src.leave_remains == 1)
+        src.leave_remains = 0
+        src << "<span class='warning'>You will not leave remains anymore!</span>"
+    else if(src.leave_remains == 0)
+        src.leave_remains = 1
+        src << "<span class='warning'>You will now leave remains!</span>"

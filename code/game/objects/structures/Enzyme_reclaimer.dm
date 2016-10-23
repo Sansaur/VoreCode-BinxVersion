@@ -38,7 +38,7 @@
 		if(H.size_multiplier <= RESIZE_NORMAL) //This still needs new sprites and the such.
 			meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh
 		else
-			return 0	//Big ass people cannot be grinded.
+			return 0	//Big ass people cannot be spiked.
 	else
 		if(istype(victim, /mob/living/carbon/alien))
 			meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh
@@ -60,7 +60,7 @@
 		user << "You remove some meat from \the [victim_name]."
 	else if(meat == 1)
 		user << "You remove the last piece of meat from \the [victim_name]!"
-		icon_state = "Ensyme_Reclaimer"
+		icon_state = "h_lathe"
 		occupied = 0
 
 //this should work .(sorry if it dont Sansaur)

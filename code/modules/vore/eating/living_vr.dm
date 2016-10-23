@@ -11,7 +11,7 @@
 	var/feral = 0 						// If the mob is feral or not. Does nothing for non xenochimera at the moment.
 	var/metabolism = 0.0015
 	var/predatory_moods = 0				// This is used for those preds who want to go crazy if they don't eat.
-
+	var/leave_remains = 1				// This is used for the 'leaving remains' option
 //
 // Hook for generic creation of stuff on new creatures
 //

@@ -42,6 +42,7 @@ V::::::V           V::::::VO:::::::OOO:::::::ORR:::::R     R:::::REE::::::EEEEEE
 /datum/vore_preferences
 	//Actual preferences
 	var/digestable = 1
+	var/leave_remains = 1
 	var/list/belly_prefs = list()
 
 	//Mechanically required
@@ -100,6 +101,7 @@ V::::::V           V::::::VO:::::::OOO:::::::ORR:::::R     R:::::REE::::::EEEEEE
 	S.cd = "/character[slot]"
 
 	S["digestable"] >> digestable
+	S["leaves_remains"] >> leave_remains
 	S["belly_prefs"] >> belly_prefs
 
 	if(isnull(digestable))
@@ -117,6 +119,7 @@ V::::::V           V::::::VO:::::::OOO:::::::ORR:::::R     R:::::REE::::::EEEEEE
 	S.cd = "/character[slot]"
 
 	S["digestable"] << digestable
+	S["leaves_remains"] << leave_remains
 	S["belly_prefs"] << belly_prefs
 
 	return 1

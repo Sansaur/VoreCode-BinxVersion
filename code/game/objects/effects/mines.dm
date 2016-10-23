@@ -1,6 +1,6 @@
 /obj/effect/mine
-	name = "Mine"
-	desc = "I Better stay away from that thing."
+	name = "landmine"
+	desc = "It's a landmine. What the hell did you expect?"
 	density = 1
 	anchored = 1
 	layer = 3
@@ -21,7 +21,7 @@
 
 	if(istype(M, /mob/living/carbon/human))
 		for(var/mob/O in viewers(world.view, src.loc))
-			O << "<font color='red'>[M] triggered the \icon[src] [src]</font>"
+			O << "<font color='red'>[M] set off the \icon[src] [src]</font>"
 		triggered = 1
 		call(src,triggerproc)(M)
 
@@ -75,7 +75,7 @@
 		qdel(src)
 
 /obj/effect/mine/proc/explode(obj)
-	explosion(loc, 0, 1, 2, 3)
+	explosion(loc, 0, 2, 3, 4)
 	spawn(0)
 		qdel(src)
 

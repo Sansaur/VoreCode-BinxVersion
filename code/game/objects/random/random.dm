@@ -206,8 +206,16 @@
 	icon_state = "revolver"
 	item_to_spawn()
 		return pick(prob(3);/obj/item/weapon/gun/projectile/shotgun/pump,
-					prob(2);/obj/item/weapon/gun/projectile/automatic/wt550,
-					prob(1);/obj/item/weapon/gun/projectile/shotgun/pump/combat)
+					prob(1);/obj/item/weapon/gun/projectile/automatic/wt550,
+					prob(1);/obj/item/weapon/gun/projectile/automatic/mp40,
+					prob(2);/obj/item/weapon/gun/projectile/automatic/z8,
+					prob(3);/obj/item/weapon/gun/projectile/automatic/pdw,
+					prob(1);/obj/item/weapon/gun/projectile/automatic/mac10,
+					prob(3);/obj/item/weapon/gun/projectile/automatic/skorpion,
+					prob(3);/obj/item/weapon/gun/projectile/automatic/sm41,
+					prob(3);/obj/item/weapon/gun/projectile/shotgun/pump/unsc,
+					prob(3);/obj/item/weapon/gun/projectile/automatic/battlerifle,
+					prob(2);/obj/item/weapon/gun/projectile/shotgun/pump/combat)
 
 /obj/random/handgun
 	name = "Random Handgun"

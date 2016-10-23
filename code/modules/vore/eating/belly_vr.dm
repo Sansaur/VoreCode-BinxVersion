@@ -103,7 +103,7 @@
 // If that location is another mob, contents are transferred into whichever of its bellies the owning mob is in.
 // Returns the number of mobs so released.
 /datum/belly/proc/release_all_contents()
-	if (internal_contents.len == 0) //If there's nothing in the belly, it doesn't work.
+	if (internal_contents.len == 0) //If there's nothing in the belly, it doesn't work. (add && is_full == 0 if it isn't working)
 		return 0
 
 	for (var/atom/movable/M in internal_contents)
@@ -120,6 +120,10 @@
 			B.internal_contents += M
 
 	owner.visible_message("<font color='green'><b>[owner] expels everything from their [lowertext(name)]!</b></font>")
+	if(src.is_full == 1)
+		if(owner.leave_remains == 1)
+			new /obj/effect/decal/remains/human(owner.loc)
+			src.is_full = 0
 	return 1
 
 // Release a specific atom from the contents of this belly into the owning mob's location.
@@ -150,6 +154,11 @@
 		B.internal_contents += M
 
 	owner.visible_message("<font color='green'><b>[owner] expels [M] from their [lowertext(name)]!</b></font>")
+	if(src.is_full == 1)
+		if(owner.leave_remains == 1)
+			new /obj/effect/decal/remains/human(owner.loc)
+			src.is_full = 0
+			owner.visible_message("<font color='green'><b>[owner] additionally expels some remains from their [lowertext(name)]!</b></font>")
 	owner.update_icons()
 	return 1
 

@@ -49,3 +49,23 @@
 /turf/snow/drift
 	name = "snowy plating"
 	icon_state = "snowyplayingdrift"
+
+	//THIS SHOULD BE CHANGED TO /TURF/SIMULATED
+
+/turf/simulated/snow/engine_room
+	name = "snow"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow"
+	blocks_air = 0
+	temperature = -1500
+
+/turf/simulated/snow/engine_room/attackby(obj/item/weapon/W, mob/user)
+	if(istype(W, /obj/item/weapon/crowbar))
+		shoveled()
+	if(istype(W, /obj/item/weapon/shovel))
+		shoveled()
+
+/turf/simulated/snow/engine_room/proc/shoveled()
+	ChangeTurf(/turf/simulated/floor)
+	luminosity = 1
+	lighting_build_overlays()
