@@ -53,6 +53,56 @@
 	CanPass(obj/mover, turf/source, height, airflow)
 		return airflow || !density
 
+/obj/structure/ladder/instamove
+	name = "ladder"
+	desc = "A ladder.  You can climb it down."
+	icon_state = "ladderdown"
+	icon = 'icons/obj/structures.dmi'
+	density = 0
+	opacity = 0
+	anchored = 1
+	var/target_X
+	var/target_Y
+	var/target_Z
+
+	Destroy()
+		if(target && icon_state == "ladderdown")
+			qdel(target)
+		return ..()
+
+	attackby(obj/item/C as obj, mob/user as mob)
+		. = ..()
+		attack_hand(user)
+		return
+
+	attack_hand(var/mob/M)
+		/*if(!target || !istype(target.loc, /turf))
+			M << "<span class='notice'>\The [src] is incomplete and can't be climbed.</span>"
+			return*/
+		var/dest = locate(target_X, target_Y, target_Z)
+		for(var/atom/A in dest)
+			if(A.density)
+				M << "<span class='notice'>\A [A] is blocking \the [src].</span>"
+				return
+
+		M.visible_message("<span class='notice'>\A [M] climbs the stairs!</span>",
+			"You climb the stairs",
+			"You hear the grunting and clanging of a metal ladder being used.")
+
+		M.Move(dest)
+
+	CanPass(obj/mover, turf/source, height, airflow)
+		return airflow || !density
+
+/obj/structure/ladder/instamove/upward
+	name = "ladder"
+	desc = "A ladder.  You can climb it up."
+	icon_state = "ladderup"
+	icon = 'icons/obj/structures.dmi'
+	density = 0
+	opacity = 0
+	anchored = 1
+
 /obj/structure/stairs
 	name = "Stairs"
 	desc = "Stairs leading to another deck.  Not too useful if the gravity goes out."

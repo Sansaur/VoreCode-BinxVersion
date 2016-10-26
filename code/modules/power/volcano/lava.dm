@@ -38,13 +38,18 @@
 //This is erasing the lava, it shouldn't be doing that.
 /obj/effect/lava/New()
 	..(loc)
+	set_light(4, 4, "#ff4500")
 	if(prob(1))
 		playsound(src, 'sound/effects/lava.wav', 50, 1)
 	for(var/obj/item/I in loc)
 		if(I in unbreakable_objects)
 			continue
 		qdel(I)
-
+	for(var/mob/living/carbon/M in loc) //This is what kills mobs in contact with newly created lava.
+		M.adjust_fire_stacks(5)
+		M.IgniteMob()
+		var/mob/living/carbon/human/HU = M
+		HU.adjustFireLoss(50, 0)
 	spawn(50)
 		expand()
 	process()
@@ -80,10 +85,12 @@
 		if(istype(T, /turf/simulated/wall/r_wall))
 			checkIfPassable = 0
 			continue
-		if(istype(T, /turf/simulated/wall/phoron))
+
+		else if(istype(T, /turf/simulated/wall/phoron))
 			checkIfPassable = 0
 			continue
-		if(istype(T, /turf/simulated/wall)) //Actually, when you reinforce a wall it doesn't create a r_wall, it just gives some "reinf_material" value
+
+		else if(istype(T, /turf/simulated/wall)) //Actually, when you reinforce a wall it doesn't create a r_wall, it just gives some "reinf_material" value
 			var/turf/simulated/wall/ThisWall = T
 			if(ThisWall.reinf_material)
 				checkIfPassable = 0
@@ -95,21 +102,31 @@
 			checkIfPassable = 0
 			continue
 		var/obj/structure/window/phoronreinforced/PR = locate() in T
+
 		if(PR)
-			checkIfPassable = 0
-			continue
+			if(PR.dir == 10) //This checks that the window is full tile
+				checkIfPassable = 0
+				continue
 		var/obj/machinery/door/airlock/AIRLOCK = locate() in T
+
 		if(AIRLOCK)
 			if(AIRLOCK.density == 1)
 				checkIfPassable = 0
 				continue
 		var/obj/machinery/door/blast/regular/BLAST = locate() in T
+
 		if(BLAST)
 			if(BLAST.density == 1)
 				checkIfPassable = 0
 				continue
 		var/obj/effect/malpais/MAL = locate() in T
+
 		if(MAL)
+			checkIfPassable = 0
+			continue
+		var/obj/effect/lavastopper/LAVASTOP = locate() in T
+
+		if(LAVASTOP)
 			checkIfPassable = 0
 			continue
 
@@ -198,3 +215,16 @@
 		if(user.loc == T && user.get_active_hand() == W )
 			user << "<span class='notice'>The wall crumbles.</span>"
 			qdel(src)
+
+/**
+* The Lava Stopper, to avoid lava from spreading infinitely out the station
+**/
+/obj/effect/lavastopper
+	name = "lavastopper"
+	desc = "YOU SHOULDN'T BE SEEING THIS."
+	icon = 'icons/mob/screen1.dmi'
+	icon_state = "x3"
+	opacity = 0
+	density = 0
+	anchored = 0
+	invisibility = 101

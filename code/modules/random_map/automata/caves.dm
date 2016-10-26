@@ -25,8 +25,10 @@
 		ore_turfs -= target_cell
 
 // Create ore turfs.
+// Trying to rebalance the goddamn Ore spawn because the map is too big for so few mineral spots and this
+// is based off how big the map is -Sansaur
 /datum/random_map/automata/cave_system/cleanup()
-	var/ore_count = round(map.len/20)
+	var/ore_count = round(map.len/8) //This was /20 before -Sansaur
 	while((ore_count>0) && (ore_turfs.len>0))
 		if(!priority_process) sleep(-1)
 		var/check_cell = pick(ore_turfs)

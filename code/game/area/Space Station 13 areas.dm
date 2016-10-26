@@ -1572,6 +1572,7 @@ area/space/atmosalert()
 	name = "\improper Engine Room"
 	icon_state = "engine"
 	sound_env = LARGE_ENCLOSED
+	ambience = list('sound/ambience/ambiengine.ogg')
 
 /area/engineering/engine_airlock
 	name = "\improper Engine Room Airlock"
@@ -2074,6 +2075,10 @@ area/space/atmosalert()
 /area/hydroponics
 	name = "\improper Hydroponics"
 	icon_state = "hydro"
+	requires_power = 0
+	always_unpowered = 0
+	lighting_use_dynamic = 0
+	ambience = list('sound/ambience/ambifarm1.ogg','sound/ambience/ambifarm2.ogg')
 
 /area/hydroponics/cafegarden
 	name = "\improper Cafeteria Garden"
@@ -2519,6 +2524,7 @@ area/space/atmosalert()
 /area/generic
 	name = "Unknown"
 	icon_state = "storage"
+
 
 
 

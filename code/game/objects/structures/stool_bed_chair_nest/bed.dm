@@ -172,6 +172,15 @@
 /obj/structure/bed/padded/New(var/newloc)
 	..(newloc,"plastic","cotton")
 
+/obj/structure/bed/dog
+	name = "dog basket"
+	desc = "Where only the best of canines rest"
+	icon_state = "dogbed"
+	base_icon = "dogbed"
+
+/obj/structure/bed/dog/New(var/newloc)
+	..(newloc,"cotton")
+
 /obj/structure/bed/alien
 	name = "resting contraption"
 	desc = "This looks similar to contraptions from earth. Could aliens be stealing our technology?"

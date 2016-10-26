@@ -147,6 +147,27 @@
 	desc = "This plaque commemorates the fall of the Atmos FEA division. For all the charred, dizzy, and brittle men who have died in its hands."
 	icon_state = "atmosplaque"
 
+/obj/structure/sign/capplaque
+	name = "\improper Peacekeeper desperado"
+	desc = "We shall always remember the station administrator who, alone, fought against the hordes of rebelious teens and their edgy behaviour... the photo looks vandalized, though."
+	icon_state = "capplaque-v"
+
+/obj/structure/sign/capplaque/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	var/turf/T = user.loc
+	if(istype(W, /obj/item/weapon/soap))
+		user << "<span class='notice'>You start cleaning the egg off the plaque..</span>"
+		if(!do_after(user,100) || !istype(src, /obj/structure/sign/capplaque) || !user || !W )
+			return
+		if(user.loc == T && user.get_active_hand() == W )
+			user << "<span class='notice'>It's clean now.</span>"
+			src.desc = "We shall always remember the station administrator who, alone, fought against the hordes of rebelious teens and their edgy behaviour. The plaque has a photo depicting a middle aged human male."
+			src.icon_state = "capplaque"
+
+/obj/structure/sign/blackdrake
+	name = "\improper Black Drake - Holl J. Abraham (2234)"
+	desc = "Truly a work of art depicting a realistic dragon"
+	icon_state = "atmosplaque"
+
 /obj/structure/sign/double/maltesefalcon	//The sign is 64x32, so it needs two tiles. ;3
 	name = "The Maltese Falcon"
 	desc = "The Maltese Falcon, Space Bar and Grill."

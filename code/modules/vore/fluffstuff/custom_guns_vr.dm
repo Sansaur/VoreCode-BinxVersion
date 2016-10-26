@@ -142,7 +142,6 @@ obj/item/weapon/gun/projectile/automatic/skorpion
 	fire_sound = 'sound/weapons/pistol_medium.ogg'
 	load_method = MAGAZINE
 	slot_flags = SLOT_BACK
-
 obj/item/weapon/gun/projectile/automatic/sm41
 	name = "M41a3"
 	desc = "It's a surplus M41A3. Unlike its pulse rifle counterparts, the M41A3 fires actual 10mm rounds. This one is colored grey."
