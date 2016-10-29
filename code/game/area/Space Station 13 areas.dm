@@ -2525,6 +2525,12 @@ area/space/atmosalert()
 	name = "Unknown"
 	icon_state = "storage"
 
+/area/were_antag
+	name = "\improper Wereplace"
+	icon_state = "tcomsatentrance"
+	requires_power = 0
+	always_unpowered = 0
+	lighting_use_dynamic = 0
 
 
 

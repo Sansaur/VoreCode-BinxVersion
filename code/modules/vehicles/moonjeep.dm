@@ -139,29 +139,11 @@
 		return 0
 	if(user != load && user != passenger1 && user != passenger2 && user != passenger3) // && (user in src)
 		user.forceMove(loc)			//This is what causes a person to move on top of the car even if it' full, it's an antibug
-	if(load || passenger1 || passenger2 || passenger3)
-		if(user == load)
-			unload(load)
-			return 1
-		else if(!user.buckled)
-			load(user)
-		if(user == passenger1)
-			unload(passenger1)
-			return 1
-		else if(!user.buckled)
-			load(user)
-		if(user == passenger2)
-			unload(passenger2)
-			return 1
-		else if(!user.buckled)
-			load(user)
-		if(user == passenger3)
-			unload(passenger3)
-			return 1
-		else if(!user.buckled)
-			load(user)
-	else
 		load(user)
+		return 1
+	else
+		unload(user)
+		return 1
 	return 0
 
 /obj/vehicle/moonjeep/relaymove(mob/user, direction)

@@ -25,6 +25,7 @@
 #define BE_MUTINEER   0x2000
 #define BE_PAI        0x4000
 #define BE_LOYALIST   0x8000
+#define BE_WERE		  0x16000
 
 var/list/be_special_flags = list(
 	"Traitor"          = BE_TRAITOR,
@@ -42,7 +43,8 @@ var/list/be_special_flags = list(
 	"Raider"           = BE_RAIDER,
 	"Diona"            = BE_PLANT,
 	"Mutineer"         = BE_MUTINEER,
-	"pAI"              = BE_PAI
+	"pAI"              = BE_PAI,
+	"Were" 			   = BE_WERE
 )
 
 #define IS_MODE_COMPILED(MODE) (ispath(text2path("/datum/game_mode/"+(MODE))))
@@ -73,6 +75,7 @@ var/list/be_special_flags = list(
 #define MODE_NINJA "ninja"
 #define MODE_RAIDER "raider"
 #define MODE_WIZARD "wizard"
+#define MODE_WERE "were"
 #define MODE_TECHNOMANCER "technomancer"
 #define MODE_CHANGELING "changeling"
 #define MODE_CULTIST "cultist"
